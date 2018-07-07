@@ -63,6 +63,8 @@
         document.getElementById("p2").innerHTML = "Wrong Key";
         document.getElementById("p1img").src = "9-RPS-example.png";
         document.getElementById("p2img").src = "9-RPS-example.png";
+        document.getElementById("p2img").style.display="inline-block";
+
       }
       else if (number1 === number2) {
         document.getElementById("p3").innerHTML = "Tie, Try Again....";
@@ -76,6 +78,7 @@
         ply2++;
         document.getElementById("p1img").src = "Rock.png";
         document.getElementById("p2img").src = "Paper.png";
+        document.getElementById("p2img").style.display="inline-block";
       }
       //   Rock vs. Scissors
       else if (number1 === 0 && number2 === 2) {
@@ -83,6 +86,8 @@
         ply1++;
         document.getElementById("p1img").src = "Rock.png";
         document.getElementById("p2img").src = "Scissors.png";
+        document.getElementById("p2img").style.display="inline-block";
+
       }
       //   Paper vs. Rock
       else if (number1 === 1 && number2 === 0) {
@@ -90,6 +95,8 @@
         ply1++;
         document.getElementById("p1img").src = "Paper.png";
         document.getElementById("p2img").src = "Rock.png";
+        document.getElementById("p2img").style.display="inline-block";
+
       }
       //   Paper vs. Scissors
       else if (number1 === 1 && number2 === 2) {
@@ -97,6 +104,8 @@
         ply2++;
         document.getElementById("p1img").src = "Paper.png";
         document.getElementById("p2img").src = "Scissors.png";
+        document.getElementById("p2img").style.display="inline-block";
+
       }
       //   Scissors vs. Paper
       else if (number1 === 2 && number2 === 1) {
@@ -104,6 +113,8 @@
         ply1++;
         document.getElementById("p1img").src = "Scissors.png";
         document.getElementById("p2img").src = "Paper.png";
+        document.getElementById("p2img").style.display="inline-block";
+
       }
       //   Scissors vs. Rock
       else if (number1 === 2 && number2 === 0) {
@@ -111,6 +122,8 @@
         ply2++;
         document.getElementById("p1img").src = "Scissors.png";
         document.getElementById("p2img").src = "Rock.png";
+        document.getElementById("p2img").style.display="inline-block";
+
       }
       //   Displays the Scores to the Scoreboard
       document.getElementById("p4").innerHTML = ply1;
@@ -137,7 +150,7 @@
         document.getElementById("p1").innerHTML = "Wrong Key";
         document.getElementById("p2").innerHTML = "Wrong Key";
         document.getElementById("p1img").src = "9-RPS-example.png";
-        document.getElementById("p2img").src = "9-RPS-example.png";
+        document.getElementById("p2img").style.display="none";
       }
       else if (number1 === number2) {
         document.getElementById("p3").innerHTML = "Tie, Try Again....";
@@ -151,6 +164,8 @@
         ply2++;
         document.getElementById("p1img").src = "Rock.png";
         document.getElementById("p2img").src = "Paper.png";
+        document.getElementById("p2img").style.display="inline-block";
+
       }
       //   Rock vs. Scissors
       else if (number1 === 0 && number2 === 2) {
@@ -158,6 +173,8 @@
         ply1++;
         document.getElementById("p1img").src = "Rock.png";
         document.getElementById("p2img").src = "Scissors.png";
+        document.getElementById("p2img").style.display="inline-block";
+
       }
       //   Paper vs. Rock
       else if (number1 === 1 && number2 === 0) {
@@ -165,6 +182,8 @@
         ply1++;
         document.getElementById("p1img").src = "Paper.png";
         document.getElementById("p2img").src = "Rock.png";
+        document.getElementById("p2img").style.display="inline-block";
+
       }
       //   Paper vs. Scissors
       else if (number1 === 1 && number2 === 2) {
@@ -172,6 +191,8 @@
         ply2++;
         document.getElementById("p1img").src = "Paper.png";
         document.getElementById("p2img").src = "Scissors.png";
+        document.getElementById("p2img").style.display="inline-block";
+
       }
       //   Scissors vs. Paper
       else if (number1 === 2 && number2 === 1) {
@@ -179,6 +200,8 @@
         ply1++;
         document.getElementById("p1img").src = "Scissors.png";
         document.getElementById("p2img").src = "Paper.png";
+        document.getElementById("p2img").style.display="inline-block";
+
       }
       //   Scissors vs. Rock
       else if (number1 === 2 && number2 === 0) {
@@ -186,6 +209,8 @@
         ply2++;
         document.getElementById("p1img").src = "Scissors.png";
         document.getElementById("p2img").src = "Rock.png";
+        document.getElementById("p2img").style.display="inline-block";
+
       }
       //   Displays the Scores to the Scoreboard
       document.getElementById("p4").innerHTML = ply1;
@@ -228,8 +253,8 @@
   </div>
 
 
-    <img class="throwimg" style="height: 150px; border: black solid 5px" id="p1img" src="9-RPS-example.png" alt="Player1">
-    <img class="throwimg" style="height: 150px; border: black solid 5px;" id="p2img" src="9-RPS-example.png" alt="Player2">
+    <img class="throwimg" style="height: 150px;" id="p1img" src="9-RPS-example.png" alt="Player1">
+    <img class="throwimg" style="height: 150px; display: none;" id="p2img" src="9-RPS-example.png" alt="Player2">
 
   </div>
   <div>
