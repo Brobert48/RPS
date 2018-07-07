@@ -9,6 +9,12 @@
     .clearfix {
       overflow: auto;
     }
+    @media screen and (max-width:959px) {
+      #mobie { display:inline-block; }
+      }
+    @media screen and (min-width:960px) {
+      #mobile { display:none; }
+      } 
   </style>
   <title>Document</title>
 </head>
@@ -21,9 +27,7 @@
     var number1;
     var rps = ["Rock", "Paper", "Sissors"];
     // player input
-    document.onkeyup = function (event) {
-
-      
+    document.onkeyup = function (event) { 
       var number1 = event.key;
       switch (number1) {
         // Rock
@@ -111,6 +115,81 @@
       document.getElementById("p6").innerHTML = tie;
 
     }    
+
+    // mobile version
+    var user;
+        var value;
+        function user(value){
+            number1=value;
+            // computer's throw
+      var number2 = Math.floor((Math.random() * rps.length));
+      //  display throws
+      document.getElementById("p1").innerHTML = rps[number1];
+      document.getElementById("p2").innerHTML = rps[number2];
+      //   Below determines the results of each matchup. ANd adds to the winners score.
+      //  tie
+      if (number1 === 3) {
+        alert("You didn't press a valid key");
+        document.getElementById("p3").innerHTML = "Wrong Key";
+        document.getElementById("p1").innerHTML = "Wrong Key";
+        document.getElementById("p2").innerHTML = "Wrong Key";
+        document.getElementById("p1img").src = "9-RPS-example.png";
+        document.getElementById("p2img").src = "9-RPS-example.png";
+      }
+      else if (number1 === number2) {
+        document.getElementById("p3").innerHTML = "Tie, Try Again....";
+        tie++;
+        document.getElementById("p1img").src = "9-RPS-example.png";
+        document.getElementById("p2img").src = "9-RPS-example.png";
+      }
+      //   Rock vs. Paper 
+      else if (number1 === 0 && number2 === 1) {
+        document.getElementById("p3").innerHTML = "Player 2 Wins!";
+        ply2++;
+        document.getElementById("p1img").src = "Rock.png";
+        document.getElementById("p2img").src = "Paper.png";
+      }
+      //   Rock vs. Scissors
+      else if (number1 === 0 && number2 === 2) {
+        document.getElementById("p3").innerHTML = "Player 1 Wins!";
+        ply1++;
+        document.getElementById("p1img").src = "Rock.png";
+        document.getElementById("p2img").src = "Scissors.png";
+      }
+      //   Paper vs. Rock
+      else if (number1 === 1 && number2 === 0) {
+        document.getElementById("p3").innerHTML = "Player 1 Wins!";
+        ply1++;
+        document.getElementById("p1img").src = "Paper.png";
+        document.getElementById("p2img").src = "Rock.png";
+      }
+      //   Paper vs. Scissors
+      else if (number1 === 1 && number2 === 2) {
+        document.getElementById("p3").innerHTML = "Player 2 Wins!";
+        ply2++;
+        document.getElementById("p1img").src = "Paper.png";
+        document.getElementById("p2img").src = "Scissors.png";
+      }
+      //   Scissors vs. Paper
+      else if (number1 === 2 && number2 === 1) {
+        document.getElementById("p3").innerHTML = "Player 1 Wins!";
+        ply1++;
+        document.getElementById("p1img").src = "Scissors.png";
+        document.getElementById("p2img").src = "Paper.png";
+      }
+      //   Scissors vs. Rock
+      else if (number1 === 2 && number2 === 0) {
+        document.getElementById("p3").innerHTML = "Player 2 Wins!";
+        ply2++;
+        document.getElementById("p1img").src = "Scissors.png";
+        document.getElementById("p2img").src = "Rock.png";
+      }
+      //   Displays the Scores to the Scoreboard
+      document.getElementById("p4").innerHTML = ply1;
+      document.getElementById("p5").innerHTML = ply2;
+      document.getElementById("p6").innerHTML = tie;
+
+    } 
   </script>
 
   <div style="margin: 25px; padding:15px; border: dashed black 5px; float:left;">
@@ -139,6 +218,11 @@
       <p style="float: left;margin: 0px 5px">Ties: </p>
       <p id="p6" style="float: left; margin: 0px 5px">...</p>
     </div>
+    <div id="mobile">
+      <button id="rock" onClick="javascript:user(0)">Rock</button>
+      <button id="paper" onclick="javascript:user(1)">Paper</button>
+      <button id="scissors" onClick="javascript:user(2)">Scissors</button>
+  </div>
 
 
     <img style="height: 150px; border: black solid 5px" id="p1img" src="9-RPS-example.png" alt="Player1">
