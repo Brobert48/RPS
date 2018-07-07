@@ -11,6 +11,8 @@
     }
     @media screen and (max-width:959px) {
       #mobie { display:inline-block; }
+      .throwimg{
+        background: white;}
       }
     @media screen and (min-width:960px) {
       #mobile { display:none; }
@@ -26,6 +28,7 @@
     var tie = 0;
     var number1;
     var rps = ["Rock", "Paper", "Sissors"];
+    // Desktop
     // player input
     document.onkeyup = function (event) { 
       var number1 = event.key;
@@ -64,8 +67,8 @@
       else if (number1 === number2) {
         document.getElementById("p3").innerHTML = "Tie, Try Again....";
         tie++;
-        document.getElementById("p1img").src = "9-RPS-example.png";
-        document.getElementById("p2img").src = "9-RPS-example.png";
+        document.getElementById("p1img").src = "Tie.png";
+        document.getElementById("p2img").src = "Tie.png";
       }
       //   Rock vs. Paper 
       else if (number1 === 0 && number2 === 1) {
@@ -139,8 +142,8 @@
       else if (number1 === number2) {
         document.getElementById("p3").innerHTML = "Tie, Try Again....";
         tie++;
-        document.getElementById("p1img").src = "9-RPS-example.png";
-        document.getElementById("p2img").src = "9-RPS-example.png";
+        document.getElementById("p1img").src = "Tie.png";
+        document.getElementById("p2img").src = "Tie.png";
       }
       //   Rock vs. Paper 
       else if (number1 === 0 && number2 === 1) {
@@ -225,8 +228,8 @@
   </div>
 
 
-    <img style="height: 150px; border: black solid 5px" id="p1img" src="9-RPS-example.png" alt="Player1">
-    <img style="height: 150px; border: black solid 5px;" id="p2img" src="9-RPS-example.png" alt="Player2">
+    <img class="throwimg" style="height: 150px; border: black solid 5px" id="p1img" src="9-RPS-example.png" alt="Player1">
+    <img class="throwimg" style="height: 150px; border: black solid 5px;" id="p2img" src="9-RPS-example.png" alt="Player2">
 
   </div>
   <div>
