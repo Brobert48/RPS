@@ -9,15 +9,24 @@
     .clearfix {
       overflow: auto;
     }
+
     @media screen and (max-width:959px) {
-      #mobie { display:inline-block; }
-      .throwimg{
-        background: white;}
+      #mobie {
+        display: inline-block;
       }
+      .throwimg {
+        background: white;
+      }
+    }
+
     @media screen and (min-width:960px) {
-      #mobile { display:none; }
-      .throwimg{background:white;}
-      } 
+      #mobile {
+        display: none;
+      }
+      .throwimg {
+        background: white;
+      }
+    }
   </style>
   <title>Rock Paper Scissors by: BlakedPotato</title>
 </head>
@@ -31,7 +40,7 @@
     var rps = ["Rock", "Paper", "Scissors"];
     // Desktop
     // player input
-    document.onkeyup = function (event) { 
+    document.onkeyup = function (event) {
       var number1 = event.key;
       switch (number1) {
         // Rock
@@ -63,66 +72,90 @@
         document.getElementById("p1").innerHTML = "Wrong Key";
         document.getElementById("p2").innerHTML = "Wrong Key";
         document.getElementById("p1img").src = "9-RPS-example.png";
-        document.getElementById("p2img").style.display="inline-block";
+        document.getElementById("p2img").style.display = "none";
 
       }
-      else if (number1 === number2) {
-        document.getElementById("p3").innerHTML = "Tie, Try Again....";
+      // else if (number1 === number2) {
+      //   document.getElementById("p3").innerHTML = "Tie, Try Again....";
+      //   tie++;
+      //   document.getElementById("p1img").src = "Tie.png";
+      //   document.getElementById("p2img").style.display = "none";
+      // }
+      // rock Vs. rock
+      else if (number1 === 0 && number2 === 0) {
+        document.getElementById("p3").innerHTML = "Tie";
         tie++;
-        document.getElementById("p1img").src = "Tie.png";
-        document.getElementById("p2img").style.display="none";
+        document.getElementById("p1img").src = "Rock.png";
+        document.getElementById("p2img").src = "Rock.png";
+        document.getElementById("p2img").style.display = "inline-block";
       }
       //   Rock vs. Paper 
       else if (number1 === 0 && number2 === 1) {
-        document.getElementById("p3").innerHTML = "Player 2 Wins!";
+        document.getElementById("p3").innerHTML = "Computer Wins!";
         ply2++;
         document.getElementById("p1img").src = "Rock.png";
         document.getElementById("p2img").src = "Paper.png";
-        document.getElementById("p2img").style.display="inline-block";
+        document.getElementById("p2img").style.display = "inline-block";
       }
       //   Rock vs. Scissors
       else if (number1 === 0 && number2 === 2) {
-        document.getElementById("p3").innerHTML = "Player 1 Wins!";
+        document.getElementById("p3").innerHTML = "You WIN!";
         ply1++;
         document.getElementById("p1img").src = "Rock.png";
         document.getElementById("p2img").src = "Scissors.png";
-        document.getElementById("p2img").style.display="inline-block";
+        document.getElementById("p2img").style.display = "inline-block";
 
+      }
+      // Paper Vs. Paper
+      else if (number1 === 1 && number2 === 1) {
+        document.getElementById("p3").innerHTML = "Tie";
+        tie++;
+        document.getElementById("p1img").src = "Paper.png";
+        document.getElementById("p2img").src = "Paper.png";
+        document.getElementById("p2img").style.display = "inline-block";
       }
       //   Paper vs. Rock
       else if (number1 === 1 && number2 === 0) {
-        document.getElementById("p3").innerHTML = "Player 1 Wins!";
+        document.getElementById("p3").innerHTML = "You WIN!";
         ply1++;
         document.getElementById("p1img").src = "Paper.png";
         document.getElementById("p2img").src = "Rock.png";
-        document.getElementById("p2img").style.display="inline-block";
+        document.getElementById("p2img").style.display = "inline-block";
 
       }
       //   Paper vs. Scissors
       else if (number1 === 1 && number2 === 2) {
-        document.getElementById("p3").innerHTML = "Player 2 Wins!";
+        document.getElementById("p3").innerHTML = "Computer Wins!";
         ply2++;
         document.getElementById("p1img").src = "Paper.png";
         document.getElementById("p2img").src = "Scissors.png";
-        document.getElementById("p2img").style.display="inline-block";
+        document.getElementById("p2img").style.display = "inline-block";
 
+      }
+      // scissors vs paper
+      else if (number1 === 2 && number2 === 2) {
+        document.getElementById("p3").innerHTML = "Tie";
+        tie++;
+        document.getElementById("p1img").src = "Scissors.png";
+        document.getElementById("p2img").src = "Scissors.png";
+        document.getElementById("p2img").style.display = "inline-block";
       }
       //   Scissors vs. Paper
       else if (number1 === 2 && number2 === 1) {
-        document.getElementById("p3").innerHTML = "Player 1 Wins!";
+        document.getElementById("p3").innerHTML = "You WIN!";
         ply1++;
         document.getElementById("p1img").src = "Scissors.png";
         document.getElementById("p2img").src = "Paper.png";
-        document.getElementById("p2img").style.display="inline-block";
+        document.getElementById("p2img").style.display = "inline-block";
 
       }
       //   Scissors vs. Rock
       else if (number1 === 2 && number2 === 0) {
-        document.getElementById("p3").innerHTML = "Player 2 Wins!";
+        document.getElementById("p3").innerHTML = "Computer Wins!";
         ply2++;
         document.getElementById("p1img").src = "Scissors.png";
         document.getElementById("p2img").src = "Rock.png";
-        document.getElementById("p2img").style.display="inline-block";
+        document.getElementById("p2img").style.display = "inline-block";
 
       }
       //   Displays the Scores to the Scoreboard
@@ -130,86 +163,102 @@
       document.getElementById("p5").innerHTML = ply2;
       document.getElementById("p6").innerHTML = tie;
 
-    }    
+    }
 
     // mobile version
     var user;
-        var value;
-        function user(value){
-            number1=value;
-            // computer's throw
+    var value;
+    function user(value) {
+      number1 = value;
+      // computer's throw
       var number2 = Math.floor((Math.random() * rps.length));
       //  display throws
       document.getElementById("p1").innerHTML = rps[number1];
       document.getElementById("p2").innerHTML = rps[number2];
       //   Below determines the results of each matchup. ANd adds to the winners score.
-      //  tie
       if (number1 === 3) {
         alert("You didn't press a valid key");
         document.getElementById("p3").innerHTML = "Wrong Key";
         document.getElementById("p1").innerHTML = "Wrong Key";
         document.getElementById("p2").innerHTML = "Wrong Key";
         document.getElementById("p1img").src = "9-RPS-example.png";
-        document.getElementById("p2img").style.display="none";
+        document.getElementById("p2img").style.display = "none";
       }
-      else if (number1 === number2) {
-        document.getElementById("p3").innerHTML = "Tie, Try Again....";
+      // rock vs rock
+      else if (number1 === 0 && number2 === 0) {
+        document.getElementById("p3").innerHTML = "Tie";
         tie++;
-        document.getElementById("p1img").src = "Tie.png";
-        document.getElementById("p2img").style.display="none";
+        document.getElementById("p1img").src = "Rock.png";
+        document.getElementById("p2img").src = "Rock.png";
+        document.getElementById("p2img").style.display = "inline-block";
       }
       //   Rock vs. Paper 
       else if (number1 === 0 && number2 === 1) {
-        document.getElementById("p3").innerHTML = "Player 2 Wins!";
+        document.getElementById("p3").innerHTML = "Computer Wins!";
         ply2++;
         document.getElementById("p1img").src = "Rock.png";
         document.getElementById("p2img").src = "Paper.png";
-        document.getElementById("p2img").style.display="inline-block";
-
+        document.getElementById("p2img").style.display = "inline-block";
       }
       //   Rock vs. Scissors
       else if (number1 === 0 && number2 === 2) {
-        document.getElementById("p3").innerHTML = "Player 1 Wins!";
+        document.getElementById("p3").innerHTML = "You WIN!";
         ply1++;
         document.getElementById("p1img").src = "Rock.png";
         document.getElementById("p2img").src = "Scissors.png";
-        document.getElementById("p2img").style.display="inline-block";
+        document.getElementById("p2img").style.display = "inline-block";
 
+      }
+      // Paper Vs. Paper
+      else if (number1 === 1 && number2 === 1) {
+        document.getElementById("p3").innerHTML = "Tie";
+        tie++;
+        document.getElementById("p1img").src = "Paper.png";
+        document.getElementById("p2img").src = "Paper.png";
+        document.getElementById("p2img").style.display = "inline-block";
       }
       //   Paper vs. Rock
       else if (number1 === 1 && number2 === 0) {
-        document.getElementById("p3").innerHTML = "Player 1 Wins!";
+        document.getElementById("p3").innerHTML = "You WIN!";
         ply1++;
         document.getElementById("p1img").src = "Paper.png";
         document.getElementById("p2img").src = "Rock.png";
-        document.getElementById("p2img").style.display="inline-block";
+        document.getElementById("p2img").style.display = "inline-block";
 
       }
       //   Paper vs. Scissors
       else if (number1 === 1 && number2 === 2) {
-        document.getElementById("p3").innerHTML = "Player 2 Wins!";
+        document.getElementById("p3").innerHTML = "Computer Wins!";
         ply2++;
         document.getElementById("p1img").src = "Paper.png";
         document.getElementById("p2img").src = "Scissors.png";
-        document.getElementById("p2img").style.display="inline-block";
+        document.getElementById("p2img").style.display = "inline-block";
 
+      }
+      // scissors vs paper
+      else if (number1 === 2 && number2 === 2) {
+        document.getElementById("p3").innerHTML = "Tie";
+        tie++;
+        document.getElementById("p1img").src = "Scissors.png";
+        document.getElementById("p2img").src = "Scissors.png";
+        document.getElementById("p2img").style.display = "inline-block";
       }
       //   Scissors vs. Paper
       else if (number1 === 2 && number2 === 1) {
-        document.getElementById("p3").innerHTML = "Player 1 Wins!";
+        document.getElementById("p3").innerHTML = "You WIN!";
         ply1++;
         document.getElementById("p1img").src = "Scissors.png";
         document.getElementById("p2img").src = "Paper.png";
-        document.getElementById("p2img").style.display="inline-block";
+        document.getElementById("p2img").style.display = "inline-block";
 
       }
       //   Scissors vs. Rock
       else if (number1 === 2 && number2 === 0) {
-        document.getElementById("p3").innerHTML = "Player 2 Wins!";
+        document.getElementById("p3").innerHTML = "Computer Wins!";
         ply2++;
         document.getElementById("p1img").src = "Scissors.png";
         document.getElementById("p2img").src = "Rock.png";
-        document.getElementById("p2img").style.display="inline-block";
+        document.getElementById("p2img").style.display = "inline-block";
 
       }
       //   Displays the Scores to the Scoreboard
@@ -219,6 +268,14 @@
 
     } 
   </script>
+<div style="border: black solid 3px; margin:25px; padding: 10px; float: left;">
+    <!-- instructions -->
+    <h1>How to Play!</h1>
+    <p>Press "r","p", or "s" to throw your hand.</p>
+    <p>Use the refresh button to reset the score.</p>
+    <p>Mobile users: Use provided buttons for your choice.</p>
+    <h3 style="font-size: 10px">&copy BlakedPotato</h3>
+  </div>
 
   <div style="margin: 25px; padding:15px; border: dashed black 5px; float:left;">
     <!-- Player 1 Throw -->
@@ -226,7 +283,7 @@
       <p style="float: left; margin: 0px 5px">Player 1: </p>
       <p id="p1" style="margin: 0px 5px">...</p>
     </div>
-    <!-- Player 2 Throw -->
+    <!-- Computer Throw -->
     <div class="clearfix">
       <p style="float: left; margin: 0px 5px">computer: </p>
       <p id="p2" style="margin: 0px 5px"> ...</p>
@@ -250,21 +307,15 @@
       <button id="rock" onClick="javascript:user(0)">Rock</button>
       <button id="paper" onclick="javascript:user(1)">Paper</button>
       <button id="scissors" onClick="javascript:user(2)">Scissors</button>
-  </div>
+    </div>
 
+    <br>
 
     <img class="throwimg" style="height: 150px;" id="p1img" src="9-RPS-example.png" alt="Player1">
     <img class="throwimg" style="height: 150px; display: none;" id="p2img" src="9-RPS-example.png" alt="Player2">
 
   </div>
-  <div>
-    <!-- instructions -->
-    <h1>How to Play!</h1>
-    <p>Press "r","p", or "s" to throw your hand.</p>
-    <p>Use the refresh button to reset the score.</p>
-    <p>Mobile users: Use provided buttons for your choice.</p>
-    <h3 style="font-size: 10px">&copy BlakedPotato</h3>
-  </div>
+  
 
 
 </body>
